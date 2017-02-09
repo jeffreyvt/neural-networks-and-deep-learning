@@ -52,7 +52,7 @@ from theano.tensor import tanh
 
 
 #### Constants
-GPU = True
+GPU = False
 if GPU:
     print "Trying to run under a GPU.  If this is not desired, then modify "+\
         "network3.py\nto set the GPU flag to False."
@@ -66,7 +66,7 @@ else:
 #### Load the MNIST data
 def load_data_shared(filename="../data/mnist.pkl.gz"):
     f = gzip.open(filename, 'rb')
-    training_data, validation_data, test_data = cPickle.load(f)
+    training_data, validation_data, test_data =cPickle.load(f)
     f.close()
     def shared(data):
         """Place the data into shared variables.  This allows Theano to copy

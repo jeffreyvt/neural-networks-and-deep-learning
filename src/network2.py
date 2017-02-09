@@ -280,8 +280,12 @@ class Network(object):
         """
         cost = 0.0
         for x, y in data:
+            print x
+            input()
             a = self.feedforward(x)
             if convert: y = vectorized_result(y)
+            # print a, y
+            # asdf = input()
             cost += self.cost.fn(a, y)/len(data)
         cost += 0.5*(lmbda/len(data))*sum(
             np.linalg.norm(w)**2 for w in self.weights)
